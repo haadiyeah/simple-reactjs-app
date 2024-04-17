@@ -17,7 +17,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("haadiyas-image") // replace with your image name
+                    docker.build("haadiyas-image") 
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Run Docker Image') {
             steps {
                 script {
-                    docker.image("haadiyas-image").run() // replace with your image name
+                    docker.image("haadiyas-image").run()
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'hadis-dockerhub-credentials') { // replace 'docker-hub-credentials' with your actual Docker Hub credentials ID
+                    docker.withRegistry('https://registry.hub.docker.com', 'hadis-dockerhub-credentials') { 
                         docker.image("haadiyas-image").push() 
                     }
                 }
